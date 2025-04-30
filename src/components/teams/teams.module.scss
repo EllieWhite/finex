@@ -1,0 +1,61 @@
+@use "../../styles/breakpoints.scss" as breakpoints;
+@use "../../styles/variables.scss" as variables;
+
+.box {
+    margin-top: 60px;
+}
+
+.boxIcon {
+    border-radius: 50%;
+    background-color: variables.$color-3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 66px;
+    height: 66px;
+    flex-shrink: 0;
+}
+
+.itemHead {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    @include breakpoints.screen-lt("md") {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.item  {
+    padding: 20px 30px;
+    box-sizing: border-box;
+    background-color: variables.$color-6;
+    border-radius: 40px;
+    width: calc(100% / 3 - 14px);
+
+    @include breakpoints.screen-lt("xl") {
+        width: calc(50% - 10px);
+    }
+
+    
+    @include breakpoints.screen-lt("lg") {
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 100%;
+    }
+
+    @include breakpoints.screen-lt("md") {
+        border-radius: 20px;
+    }
+}
+
+.wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.content {
+    margin-top: 10px;
+}

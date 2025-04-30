@@ -1,0 +1,65 @@
+@use "../../styles/breakpoints.scss" as breakpoints;
+@use "../../styles/variables.scss" as variables;
+
+.slide {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    @include breakpoints.screen-lt("lg") {
+        flex-direction: column;
+    }
+}
+
+.item {
+    border-radius: 50px;
+    width: calc(50% - 10px);
+    padding: 30px;
+    box-sizing: border-box;
+    max-height: 350px;
+    @include breakpoints.screen-lt("xl") {
+        max-height: 395px;
+    }
+
+
+    @include breakpoints.screen-lt("lg") {
+        width: 100%;
+    }
+
+    @include breakpoints.screen-lt("md") {
+        border-radius: 20px;
+        padding: 20px;
+    }
+}
+
+.itemTitle {
+    background-color: variables.$color-3;
+}
+
+.title {
+    font-size: 42px;
+    color: variables.$color-1;
+    max-width: 10em;
+    @include breakpoints.screen-lt("lg") {
+       max-width: 100%;
+       font-size: 32px;
+    }
+}
+
+.itemContent {
+    background-color: variables.$color-6;
+}
+
+.itemWidthImg {
+    padding: 0;
+    overflow: hidden;
+
+    & img {
+        width: auto;
+        height: 100%;
+        @include breakpoints.screen-lt("md") {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+}

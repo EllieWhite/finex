@@ -1,0 +1,213 @@
+@use "../../styles/breakpoints.scss" as breakpoints;
+@use "../../styles/variables.scss" as variables;
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    &.xl_col_3 {
+        flex-wrap: nowrap;
+
+        @include breakpoints.screen-lt("xl") {
+            flex-wrap: wrap;
+        }
+
+        & .item {
+            height: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+
+            @include breakpoints.screen-lt("xl") {
+                padding-top: 24px;
+                padding-bottom: 24px;
+                width: calc(50% - 10px);
+            }
+
+            @include breakpoints.screen-lt("md") {
+                width: 100%;
+                min-height: 200px;
+            }
+        }
+
+        & .img {
+            position: absolute;
+            height: 150px;
+            right: 0;
+            bottom: 0;
+            @include breakpoints.screen-lt("md") {
+                right: -40px;
+            }
+        }
+
+        & .designation {
+            position: static;
+            margin-top: 10px;
+            color: variables.$color-1;
+        }
+
+        & .text {
+            position: relative;
+            z-index: 2;
+        }
+    }
+}
+
+.item {
+    border-radius: 30px;
+    box-sizing: border-box;
+    padding: 30px;
+    background-color: variables.$color-6;
+    position: relative;
+    width: calc(100% / 3 - 14px);
+    height: 286px;
+    overflow: hidden;
+
+    @include breakpoints.screen-lt("xl") {
+        height: 350px;
+    }
+
+    @include breakpoints.screen-lt("lg") {
+        width: calc(50% - 10px);
+    }
+
+    @include breakpoints.screen-lt("md") {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    &:hover {
+        & .img {
+            opacity: 0;
+            @include breakpoints.screen-lt("md") {
+                opacity: 1;
+            }        
+        }
+    }
+
+    &.hover_up {
+        &:hover {
+            & img {
+                opacity: 0;
+                transition: opacity 450ms ease;
+                @include breakpoints.screen-lt("md") {
+                    opacity: 1;
+                }   
+            }
+
+            & .title-3 {
+                opacity: 1;
+            }
+
+            & .designation {
+                opacity: 1;
+            }
+
+            & .text {
+                top: 30px;
+            }
+
+        }
+
+        & img {
+            @include breakpoints.screen-lt("md") {
+                margin-bottom: 20px;
+            }   
+        }
+    }
+
+    &.hover_fade {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        transition: 450ms ease;
+        @include breakpoints.screen-lt("md") {
+            color: variables.$color-1;
+
+            &:nth-of-type(odd) {
+                background-color: variables.$color-3;
+            }
+
+            &:nth-of-type(even) {
+                background-color: variables.$color-8;
+            }
+
+            & .designation {
+                opacity: 1;
+            }
+        }
+
+        & img {
+            order: 1;
+            margin-top: auto;
+            margin-left: auto;
+        }
+
+        & .text {
+            position: static;
+            @include breakpoints.screen-lt("md") {
+                max-width: 15em;
+            }
+            
+        }
+
+        &:hover {
+            color: variables.$color-1;
+
+            &:nth-of-type(odd) {
+                background-color: variables.$color-3;
+            }
+
+            &:nth-of-type(even) {
+                background-color: variables.$color-8;
+            }
+
+            & .designation {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.img { 
+    height: 110px;
+    transition: inset 450ms ease;
+
+    @include breakpoints.screen-lt("md") {
+        height: 80px;
+    }
+}
+
+.text {
+    position: absolute;
+    top: calc(100% - 30px - 65px);
+    right: 30px;
+    left: 30px;
+    transition: inset 450ms ease;
+    @include breakpoints.screen-lt("xl") {
+        top: calc(100% - 61px - 65px);
+    }
+
+    @include breakpoints.screen-lt("md") {
+        position: static;
+    }
+
+}
+
+.designation {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    color: variables.$color-7;
+    font-size: 20px;
+    line-height: 1.4;
+    opacity: 0;
+    transition: opacity 450ms ease;
+    @include breakpoints.screen-lt("md") {
+        font-size: 16px;
+        opacity: 1;
+        position: static;
+        margin-top: 10px;
+    }
+}

@@ -1,0 +1,12 @@
+.gallery_swiper {
+
+    & .swiper-slide {
+        height: auto;
+    }
+}
+
+.gallery_arrow_box {
+    display: flex;
+    column-gap: 14px;
+    justify-content: flex-end;
+}

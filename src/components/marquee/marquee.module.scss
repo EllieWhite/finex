@@ -1,0 +1,61 @@
+@use "../../styles/breakpoints.scss" as breakpoints;
+@use "../../styles/variables.scss" as variables;
+
+.wrapper {
+    height: 28vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee {
+    position: relative;
+    display: flex;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    overflow: hidden;
+    
+}
+
+.items {
+    display: flex;
+    animation: marquee 30s infinite linear;
+}
+
+
+.box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.item {
+    color: variables.$color-5;
+    font-weight: 700;
+    font-size: 25vw;
+    line-height: 1;
+}
+
+
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+.subtitle {
+    position: absolute;
+    left: 50%;
+    top: 47%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    line-height: 1;
+}
